@@ -8,7 +8,7 @@ public class App {
 
     while(true){
         int option = userInterface.showMenu(scanner);
-        if (option == 0)
+        if (option == 0) 
             break;
 
         switch (option) {

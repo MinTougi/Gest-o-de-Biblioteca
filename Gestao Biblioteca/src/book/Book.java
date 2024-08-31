@@ -9,7 +9,7 @@ public class Book extends Author {
     private String ISBN;
     private Boolean available;
 
-    public Book(String titulo, Author author, String ISBN, Boolean available) {
+    public Book(String title, Author author, String ISBN, Boolean available) {
         this.title = title;
         this.author = author;
         if (ISBN.length() != 13 || !ISBN.matches("[0-9]+")) {
