@@ -13,6 +13,9 @@ public class Author {
         this.birth_data = birth_data;
     }
 
+    public Author() {
+    }
+
     //Getters e Setters
     public String getAuthor_name() {
         return author_name;

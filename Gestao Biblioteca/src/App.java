@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
@@ -16,6 +17,5 @@ public class App {
             default -> System.out.println("Plese, select a valid option");
         }
     }
-
     }
 }
