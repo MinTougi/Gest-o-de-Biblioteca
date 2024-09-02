@@ -50,11 +50,15 @@ public class Book extends Author {
 
         public static Book checkAvailability(String titleToCheck) {
             for (Book book : books) {
-                if (book.getTitle().equalsIgnoreCase(book.title) && !book.getAvailable()) {
-                    return book; // Book found and available
+                if (book.getTitle().equalsIgnoreCase(titleToCheck)) {
+                    if (book.getAvailability().equalsIgnoreCase("available")) {
+                        return book;
+                    } else {
+                        return null; // Book found and available
+                    }
                 }
             }
-            return null; // Book not found or unavailable
+            return null;
         }
 
 //        public static Book getBookByAuthor(Author author) {
