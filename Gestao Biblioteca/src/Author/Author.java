@@ -1,4 +1,6 @@
 package Author;
+import book.Book;
+
 import java.time.LocalDate;
 
 public class Author {
@@ -40,4 +42,9 @@ public class Author {
     public void setBirth_data(LocalDate birth_data) {
         this.birth_data = birth_data;
     }
+    @Override
+    public String toString() {
+        return author_name; // Return the author's name
+    }
 }
+
