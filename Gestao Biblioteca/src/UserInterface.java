@@ -11,6 +11,8 @@ public class UserInterface {
             3 - Return a book
             4 - Check the book avaliability
             0 - Quit
+            
+            Choose a Option:\n
             """;
 
     public int showMenu (Scanner scanner){
@@ -18,6 +20,8 @@ public class UserInterface {
         int option = scanner.nextInt();
         scanner.nextLine();
         return option;
-    }       
+
+    }
+
 }
 
