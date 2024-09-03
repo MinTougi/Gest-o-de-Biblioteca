@@ -64,16 +64,14 @@ public class Book extends Author {
             }
             return null;
         }
-
-//        public static Book getBookByAuthor(Author author) {
-//            for (Book book : books) {
-//                if (book.author.equals(author)) {
-//                    return book;
-//                }
-//            }
-//            return null;
-//        }
+    public static void borrowBook(){
+            for (Book book : books) {
+                if (book.getAvailable()) {
+                    book.available = false;
+                }
+            }
+            }
+        }
     }
-}
 
 
