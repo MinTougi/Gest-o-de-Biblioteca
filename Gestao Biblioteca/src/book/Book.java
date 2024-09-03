@@ -10,6 +10,7 @@ public class Book extends Author {
      String ISBN;
      Boolean available;
 
+// getters
     public String getTitle() {
         return title;
     }
@@ -20,6 +21,10 @@ public class Book extends Author {
     public Author getAuthor() {
         return author;
     }
+    //Change the false and true to available and unavailable
+    public String getAvailability() {
+        return available ? "available" : "unavailable";
+    }
     public Book(String title, Author author, String ISBN, Boolean available) {
         this.title = title;
         this.author = author;
@@ -29,15 +34,14 @@ public class Book extends Author {
         this.ISBN = ISBN;
         this.available = available;
     }
-    public String getAvailability() {
-        return available ? "available" : "unavailable";
-    }
+
+    // create a class library to set the books on
     public static class Library {
         private static final List<Book> books = new ArrayList<>();
         public void addBook(Book book) {
             books.add(book); // Method to add books to the list
         }
-
+// list the books
         public static void listBook(){
             for (Book book : books) {
                 System.out.println("Book Title: " + book.title);
@@ -47,7 +51,7 @@ public class Book extends Author {
                 System.out.println("\n--------\n");
             }
         }
-
+// Checks the availability of the book
         public static Book checkAvailability(String titleToCheck) {
             for (Book book : books) {
                 if (book.getTitle().equalsIgnoreCase(titleToCheck)) {
