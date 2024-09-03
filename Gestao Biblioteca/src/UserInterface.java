@@ -1,3 +1,5 @@
+import book.Book;
+
 import java.util.Scanner;
 
 public class UserInterface {
@@ -22,6 +24,23 @@ public class UserInterface {
         return option;
 
     }
-
+    public void returnToMenu() {
+        System.out.println("\nPress enter to Return to menu");
+        scanner.nextLine();
+        System.out.println("Returning to main menu...");
+    }
+    public void checkBookAvaliability() {
+        System.out.println("Enter the title of the book you want to check:");
+        String titleToCheck = scanner.nextLine();
+        Book availableBook = Book.Library.checkAvailability(titleToCheck);
+        if (availableBook != null) {
+            System.out.println("Book found!");
+            System.out.println("Title: " + availableBook.getTitle());
+            System.out.println("Author: " + availableBook.getAuthor());
+            System.out.println("Available: " + availableBook.getAvailability());
+        } else {
+            System.out.println("Book not found or unavailable.");
+        }
+    }
 }
 
