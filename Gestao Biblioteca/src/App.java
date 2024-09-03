@@ -35,6 +35,7 @@ public class App {
                 break;
             //case 2 -> //use the method witch will borrow a book
             case 2:
+                Book.Library.borrowBook();
                 userInterface.returnToMenu();
                 break;
             //case 3 -> //use the method witch will return a book
