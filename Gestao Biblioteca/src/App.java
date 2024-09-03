@@ -9,7 +9,6 @@ public class App {
         Scanner scanner = new Scanner (System.in);
         UserInterface userInterface = new UserInterface();
         Book.Library library = new Book.Library();
-        Book.Library checkAvailability = new Book.Library();
 
         // Data save
         LocalDate localDate1 = LocalDate.of(1903, 07, 22);;
@@ -32,37 +31,33 @@ public class App {
             //case 1 -> //show the method witch will list the books
             case 1:
                 Book.Library.listBook();
-                System.out.println("Press enter to Return to menu");
+                userInterface.returnToMenu();
                 break;
             //case 2 -> //use the method witch will borrow a book
             case 2:
-
+                userInterface.returnToMenu();
                 break;
             //case 3 -> //use the method witch will return a book
             case 3:
+                userInterface.returnToMenu();
                 break;
             //case 4 -> //use the method witch will check the availability of a book
             case 4:
-                System.out.println("Enter the title of the book you want to check:");
-                String titleToCheck = scanner.nextLine();
-                Book availableBook = Book.Library.checkAvailability(titleToCheck);
-                if (availableBook != null) {
-                    System.out.println("Book found!");
-                    System.out.println("Title: " + availableBook.getTitle());
-                    System.out.println("Author: " + availableBook.getAuthor());
-                    System.out.println("Available: " + availableBook.getAvailability());
-                } else {
-                    System.out.println("Book not found or unavailable.");
-                }
+                userInterface.checkBookAvaliability();
+                userInterface.returnToMenu();
                 break;
-            //case 5 -> //Finish the running code
+//case 4 -> //use the method witch will check the books by the authors name
             case 5:
+
+                userInterface.returnToMenu();
+                break;
+            //case 6 -> //Finish the running code
+            case 6:
                 break;
             //Default option to give a feedback to the user about the wrong number they put
-            default: System.out.println("Plese, select a valid option");
+            default: System.out.println("Please, select a valid option");
         }
 
     }
-
     }
 }
