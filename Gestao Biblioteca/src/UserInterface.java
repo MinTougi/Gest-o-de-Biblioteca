@@ -5,31 +5,36 @@ import java.util.Scanner;
 public class UserInterface {
 
     Scanner scanner = new Scanner(System.in);
-// Menu
+    // Menu
     final String MENU = """
             \n========== Menu ===========
             1 - List books
             2 - Borrow a book
             3 - Return a book
-            4 - Check the book avaliability
+            4 - Check the book availability
+            5 - Find books by author name
             0 - Quit
-            
-            Choose a Option:\n
+            \nChoose a Option:\n
             """;
-// show the menu itens
-    public int showMenu (Scanner scanner){
+
+    // show the menu itens
+    public int showMenu(Scanner scanner) {
         System.out.println(MENU);
         int option = scanner.nextInt();
         scanner.nextLine();
         return option;
 
     }
+
+    // method to return to menu
     public void returnToMenu() {
         System.out.println("\nPress enter to Return to menu");
         scanner.nextLine();
         System.out.println("Returning to main menu...");
     }
-    public void checkBookAvaliability() {
+
+    // checks the book availability
+    public void checkBookAvailability() {
         System.out.println("Enter the title of the book you want to check:");
         String titleToCheck = scanner.nextLine();
         Book availableBook = Book.Library.checkAvailability(titleToCheck);
