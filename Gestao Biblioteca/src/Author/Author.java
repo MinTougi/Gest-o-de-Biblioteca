@@ -1,9 +1,11 @@
 package Author;
+
 import book.Book;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Author {
     private String author_name;
@@ -11,7 +13,7 @@ public class Author {
     private LocalDate birth_data;
 
     //Método construtor
-    public Author(String author_name, String nacionality, LocalDate birth_data){
+    public Author(String author_name, String nacionality, LocalDate birth_data) {
         this.author_name = author_name;
         this.nacionality = nacionality;
         this.birth_data = birth_data;
@@ -44,11 +46,14 @@ public class Author {
     public void setBirth_data(LocalDate birth_data) {
         this.birth_data = birth_data;
     }
-// create a list of authors
+
+    // create a list of authors
     private static final List<Author> authors = new ArrayList<>();
+
     public void addAuthor(Author author) {
         authors.add(author); // Add the author directly to the list
     }
+
     // find the author by the name
     public static Author findAuthorByName(String name) {
         for (Author author : authors) {
@@ -58,6 +63,7 @@ public class Author {
         }
         return null;
     }
+
     //Show the name of the author
     @Override
     public String toString() {
