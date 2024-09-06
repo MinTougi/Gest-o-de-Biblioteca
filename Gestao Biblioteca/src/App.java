@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 import Author.Author;
@@ -6,6 +7,8 @@ import Member.Professor;
 import book.Book;
 
 import java.time.LocalDate;
+
+import static book.Book.Library.books;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -46,7 +49,7 @@ public class App {
                     break;
                 //case 3 -> //use the method witch will return a book
                 case 3:
-
+                    Book.Library.returnBook(scanner, books);
                     userInterface.returnToMenu();
                     break;
                 //case 4 -> //use the method witch will check the availability of a book
@@ -54,9 +57,9 @@ public class App {
                     userInterface.checkBookAvailability();
                     userInterface.returnToMenu();
                     break;
-                //case 4 -> //use the method witch will check the books by the authors name
+                //case 5 -> //use the method witch will check the books by the authors name
                 case 5:
-
+                    userInterface.findBookByAuthor();
                     userInterface.returnToMenu();
                     break;
                 //case 6 -> //Finish the running code
