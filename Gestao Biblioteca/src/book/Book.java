@@ -17,6 +17,8 @@ public class Book extends Author {
     String ISBN;
     Boolean available;
 
+
+
     // getters
     public String getTitle() {
         return title;
@@ -24,6 +26,10 @@ public class Book extends Author {
 
     public Boolean getAvailable() {
         return available;
+    }
+
+    public void setAvailable(Boolean available) {
+        this.available = available;
     }
 
     public Author getAuthor() {
@@ -45,9 +51,11 @@ public class Book extends Author {
         this.available = available;
     }
 
+
+
     // create a class library to set the books on
     public static class Library {
-        private static final List<Book> books = new ArrayList<>();
+        public static final List<Book> books = new ArrayList<>();
 
         public void addBook(Book book) {
             books.add(book); // Method to add books to the list
@@ -64,6 +72,14 @@ public class Book extends Author {
             }
         }
 
+        public static Book findBooksByAuthor(String authorName) {
+            for (Book book : books) {
+                if (book.getAuthor().getAuthor_name().equalsIgnoreCase(authorName)) {
+                    return book;
+                }
+            }
+            return null;
+        }
         // Checks the availability of the book
         public static Book checkAvailability(String titleToCheck) {
             for (Book book : books) {
@@ -76,6 +92,27 @@ public class Book extends Author {
                 }
             }
             return null;
+        }
+
+
+        public static void returnBook(Scanner scanner, List<Book> books) {
+            System.out.println("Book Title you want to return: ");
+            String titleName = scanner.nextLine();
+
+            for (Book book : books) {
+                if (book != null && book.getTitle().equalsIgnoreCase(titleName)) {
+                    if (book.getAvailability().equalsIgnoreCase("unavailable")) {
+                        book.setAvailable(true);
+                        System.out.println("Book returned successfully.");
+                        return;
+                    } else {
+                        System.out.println("Book is already available.");
+                        return;
+                    }
+                }
+            }
+
+            System.out.println("Book not found.");
         }
 
         public static void borrowBook(Scanner scanner) {
@@ -109,6 +146,7 @@ public class Book extends Author {
             System.out.println("Successfully borrowed " + book.title + " by " + book.author.getAuthor_name());
             System.out.println("Borrowed by: " + studentProfessorCheck);
         }
+
     }
 }
 
