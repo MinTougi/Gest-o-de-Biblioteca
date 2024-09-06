@@ -1,5 +1,7 @@
 import book.Book;
+import Author.Author;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -45,6 +47,22 @@ public class UserInterface {
             System.out.println("Available: " + availableBook.getAvailability());
         } else {
             System.out.println("Book not found or unavailable.");
+        }
+    }
+    public void findBookByAuthor(){
+        System.out.println("Enter the author's name: ");
+        String authorName = scanner.nextLine();
+        boolean found = false;
+
+        for (Book book : Book.Library.books) {
+            if (book.getAuthor().getAuthor_name().equalsIgnoreCase(authorName)) {
+                System.out.println(" - " + book.getTitle());
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("No books found for this author.");
         }
     }
 }
