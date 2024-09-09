@@ -1,7 +1,5 @@
 package Author;
 
-import book.Book;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
