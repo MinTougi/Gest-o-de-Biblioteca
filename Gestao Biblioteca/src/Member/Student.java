@@ -7,10 +7,6 @@ public class Student extends Member {
         return course;
     }
 
-    public void setCourse(String course) {
-        this.course = course;
-    }
-
     public Student(String memberName, String memberId, String course) {
         super(memberName, memberId);
         this.course = course;
