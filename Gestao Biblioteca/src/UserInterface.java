@@ -1,7 +1,4 @@
 import book.Book;
-import Author.Author;
-
-import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
