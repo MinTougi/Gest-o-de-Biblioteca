@@ -12,10 +12,6 @@ public class Professor extends Member {
         return departament;
     }
 
-    public void setDepartament(String departament) {
-        this.departament = departament;
-    }
-
     @Override
     public String toString() {
         return super.toString() + "\nDepartment: " + departament;
