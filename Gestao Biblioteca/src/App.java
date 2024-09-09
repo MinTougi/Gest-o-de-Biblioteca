@@ -1,7 +1,7 @@
-import java.util.List;
 import java.util.Scanner;
 
 import Author.Author;
+import Member.Student;
 import Member.Member;
 import Member.Professor;
 import book.Book;
@@ -16,60 +16,60 @@ public class App {
         UserInterface userInterface = new UserInterface();
         Book.Library library = new Book.Library();
 
-        // Data save
+        // Saving example data
         LocalDate localDate1 = LocalDate.of(1903, 07, 22);
         LocalDate localDate2 = LocalDate.of(1984, 12, 03);
         LocalDate localDate3 = LocalDate.of(1700, 03, 18);
         Author author1 = new Author("Claudio", "Brasil", localDate1);
         Author author2 = new Author("Pedro", "Brasil", localDate2);
-        Author author3 = new Author("Robert", "França", localDate3);
+        Author author3 = new Author("Robert", "France", localDate3);
         library.addBook(new Book("Book Title 1", author1, "1234327890112", true));
         library.addBook(new Book("Book Title 2", author2, "1234567895512", false));
         library.addBook(new Book("Book Title 3", author3, "4234567815512", true));
 
-
+        // Creating members
         Member member1 = new Member("Cezinha", "00320");
-        Professor professor = new Professor(member1.getMember_name(), member1.getMember_id(), "TI");
+        Member member2 = new Member("Josimar", "00222");
+        Professor professor = new Professor(member1.getMember_name(), member1.getMember_id(), "IT");
+        Student student = new Student(member2.getMember_name(), member2.getMember_id(), "IT");
 
-
-        // Case check -> Menu
+        // Menu loop
         while (true) {
             int option = userInterface.showMenu(scanner);
             if (option == 0) break;
             switch (option) {
-                //case 1 -> //show the method witch will list the books
+                // List books
                 case 1:
                     Book.Library.listBook();
                     userInterface.returnToMenu();
                     break;
-                //case 2 -> //use the method witch will borrow a book
+                // Borrow book
                 case 2:
                     Book.Library.borrowBook(scanner);
                     userInterface.returnToMenu();
                     break;
-                //case 3 -> //use the method witch will return a book
+                // Return book
                 case 3:
                     Book.Library.returnBook(scanner, books);
                     userInterface.returnToMenu();
                     break;
-                //case 4 -> //use the method witch will check the availability of a book
+                // Check book availability
                 case 4:
                     userInterface.checkBookAvailability();
                     userInterface.returnToMenu();
                     break;
-                //case 5 -> //use the method witch will check the books by the authors name
+                // Find books by author
                 case 5:
                     userInterface.findBookByAuthor();
                     userInterface.returnToMenu();
                     break;
-                //case 6 -> //Finish the running code
+                // Exit
                 case 6:
                     break;
-                //Default option to give a feedback to the user about the wrong number they put
+                // Invalid option
                 default:
                     System.out.println("Please, select a valid option");
             }
-
         }
     }
 }
