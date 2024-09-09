@@ -1,28 +1,27 @@
 package Member;
 
+import book.Book;
 
 import java.util.ArrayList;
+import java.time.LocalDate;
 
 public class Member {
     private String member_id;
     private final String member_name;
-//    private final ArrayList<String> history = new ArrayList<>();
 
     private static final ArrayList<Member> members = new ArrayList<>();
+    private ArrayList<Book> borrowedBooks;  // List to store borrowed books
 
 
     public Member(String memberName, String memberId) {
         this.member_name = memberName;
         this.member_id = memberId;
+        borrowedBooks = new ArrayList<>();
         members.add(this);
     }
 
     public String getMember_id() {
         return member_id;
-    }
-
-    public void setMember_id(String member_id) {
-        this.member_id = member_id;
     }
 
     public String getMember_name() {
@@ -38,11 +37,11 @@ public class Member {
         return null;
     }
 
-    public void addMember(Member member) {
-        members.add(member);
-    }
-
-    public static void removeMember(Member member) {
-        members.remove(member);
+    public void borrowBook(Book book) {
+        borrowedBooks.add(book);
+        book.setAvailable(false);  // Update book availability in Library class
+        System.out.println("Successfully borrowed " + book.getTitle() + " by " + book.getAuthor().getAuthor_name() + ".");
+        System.out.println("Borrowed on: " + LocalDate.now());  // Record borrow date
     }
 }
+
